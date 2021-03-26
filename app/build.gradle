@@ -42,25 +42,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.facebook.fresco:fresco:2.4.0'
-    // your app's other dependencies
-        implementation('com.facebook.fresco:fresco:2.4.0') {
-        exclude group: 'com.facebook.soloader', module: 'soloader'
-        exclude group: 'com.facebook.fresco', module: 'soloader'
-        exclude group: 'com.facebook.fresco', module: 'nativeimagefilters'
-        exclude group: 'com.facebook.fresco', module: 'nativeimagetranscoder'
-        exclude group: 'com.facebook.fresco', module: 'memory-type-native'
-        exclude group: 'com.facebook.fresco', module: 'imagepipeline-native'
-    }
-        // For animated GIF support
-        implementation 'com.facebook.fresco:animated-gif:2.4.0'
-
-        // For WebP support, including animated WebP
-        implementation 'com.facebook.fresco:animated-webp:2.4.0'
-        implementation 'com.facebook.fresco:webpsupport:2.4.0'
-
-        // For WebP support, without animations
-        implementation 'com.facebook.fresco:webpsupport:2.4.0'
-
-
 
 }
