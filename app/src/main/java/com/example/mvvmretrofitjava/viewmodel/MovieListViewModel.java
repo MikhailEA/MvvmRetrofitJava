@@ -1,5 +1,6 @@
 package com.example.mvvmretrofitjava.viewmodel;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.mvvmretrofitjava.model.MovieModel;
@@ -11,11 +12,18 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MovieListViewModel extends ViewModel {
 
+    private MutableLiveData<List<MovieModel>> moviesList;
+
+
     public MovieListViewModel() {
+        moviesList = new MutableLiveData<>();
+    }
+
+    public MutableLiveData<List<MovieModel>> getMoviesListObserver() {
+        return moviesList;
     }
 
     public void makeApiCall() {
@@ -24,11 +32,12 @@ public class MovieListViewModel extends ViewModel {
         call.enqueue(new Callback<List<MovieModel>>() {
             @Override
             public void onResponse(Call<List<MovieModel>> call, Response<List<MovieModel>> response) {
-                
+                moviesList.postValue(response.body());
             }
 
             @Override
             public void onFailure(Call<List<MovieModel>> call, Throwable t) {
+                moviesList.postValue(null);
 
             }
         });

@@ -9,10 +9,6 @@ public class MovieModel {
 
         this.title = title;
         this.image = image;
-
-
-
-
     }
 
     public String getTitle() {
